@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Videos{% endblock %}
+{% block content %}
+<h2>Lista de Videos</h2>
+<ul class="list-group">
+  {% for v in lista %}
+    <li class="list-group-item">
+      <strong>{{ v.titulo }}</strong> - <a href="{{ v.url }}" target="_blank">Ver video</a><br>
+      <small>{{ v.descripcion }}</small>
+    </li>
+  {% empty %}
+    <li class="list-group-item">No hay videos registrados.</li>
+  {% endfor %}
+</ul>
+
+<h3 class="mt-4">Agregar Video</h3>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn btn-success" type="submit">Guardar</button>
+</form>
+{% endblock %}

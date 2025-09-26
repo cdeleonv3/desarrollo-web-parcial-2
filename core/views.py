@@ -3,7 +3,7 @@ from .models import Video, User
 from .forms import VideoForm, UserForm
 
 def videos(request):
-    list = Video.objects.all()
+    lista = Video.objects.all()
     if request.method == "POST":
         form = VideoForm(request.POST)
         if form.is_valid():
@@ -11,11 +11,11 @@ def videos(request):
             return redirect('videos')
     else:
         form = VideoForm()
-    return render(request, "videos.html", {"list": list, "form": form})
+    return render(request, "videos.html", {"lista": lista, "form": form})
 
 
 def users(request):
-    list = User.objects.all()
+    lista = User.objects.all()
     if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
@@ -23,7 +23,7 @@ def users(request):
             return redirect('users')
     else:
         form = UserForm()
-    return render(request, "users.html", {"list": list, "form": form})
+    return render(request, "users.html", {"lista": lista, "form": form})
 
 
 def credits(request):
