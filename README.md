@@ -8,3 +8,6 @@
 ## Migracion
 `python manage.py makemigrations`
 `python manage.py migrate`
+## Creacion de SuperUser
+`python manage.py createsuperuser`
+`cdeleon CDLeon123`
